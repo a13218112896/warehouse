@@ -3,15 +3,15 @@
   <el-form
     :label-position="labelPosition"
     label-width="100px"
-    :model="formLabelAlign"
+    :model="sys_user"
     style="max-width: 400px"
     class="loginContainter"
   >
     <el-form-item label="Username">
-      <el-input v-model="formLabelAlign.name" />
+      <el-input v-model="sys_user.username" />
     </el-form-item>
     <el-form-item label="Password">
-      <el-input v-model="formLabelAlign.region" />
+      <el-input v-model="sys_user.password" />
     </el-form-item>
     <el-button type="primary" class="login-btn" @click="submitLogin">登录</el-button>
   </el-form>
@@ -24,10 +24,14 @@ import { reactive, ref } from 'vue'
 
 const labelPosition = ref('top')
 
-const formLabelAlign = reactive({
-  name: '',
-  region: '',
-  type: '',
+const sys_user = reactive({
+  // buddha 头像地址 mobile 手机号
+  id: '',
+  username: '',
+  password: '',
+  buddha:'',
+  email: '',
+  mobile: '',
 })
 </script>
 <style scoped>

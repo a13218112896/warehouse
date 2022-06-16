@@ -1,5 +1,5 @@
 {
-  "name": "warehouse_sys",
+  "name": "ww",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "element-plus": "^2.2.5",
     "vue": "^3.2.25"
   },
   "devDependencies": {

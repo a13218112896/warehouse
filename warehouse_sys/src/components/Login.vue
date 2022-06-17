@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="login">
   <el-form
     :label-position="labelPosition"
     label-width="100px"
@@ -16,14 +16,16 @@
     <el-button type="primary" class="login-btn" @click="submitLogin">登录</el-button>
   </el-form>
 </div>
-  
 </template>
 
 <script lang="ts" setup>
+import router from '../router/index.js'
 import { reactive, ref } from 'vue'
 
 const labelPosition = ref('top')
-
+const submitLogin = () =>{
+  router.push('home')
+}
 const sys_user = reactive({
   // buddha 头像地址 mobile 手机号
   id: '',
@@ -33,6 +35,7 @@ const sys_user = reactive({
   email: '',
   mobile: '',
 })
+
 </script>
 <style scoped>
 .loginContainter {

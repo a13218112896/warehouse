@@ -19,3 +19,7 @@ const Toback = () =>{
     router.push('/home')
 }
 </script>
+
+<style scoped>
+
+</style>

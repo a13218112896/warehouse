@@ -8,14 +8,13 @@
             </el-header>
             <el-affix :offset="0">
             <el-main>
-                    <el-input class="input" v-model="search" placeholder="请输入元器件型号" />
-                    <el-button class="search_btn" type="primary">
-                        <el-icon style="vertical-align: middle">
-                        <Search />
-                        </el-icon>
-                        <span style="vertical-align: middle"> 搜索 </span>
-                    </el-button>
-
+                <el-input class="input" v-model="search" placeholder="请输入器件型号"/>
+                <el-button class="search_btn" type="primary">
+                    <el-icon style="vertical-align: middle">
+                    <Search/>
+                    </el-icon>
+                    <span style="vertical-align: middle"> 搜索 </span>
+                </el-button>
             </el-main>
             </el-affix>
             <el-footer>Main</el-footer>

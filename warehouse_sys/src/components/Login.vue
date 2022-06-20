@@ -20,10 +20,12 @@
 </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import router from '../router/index.js';
 import { reactive, ref, defineComponent } from 'vue';
 import { User, Key} from '@element-plus/icons-vue';
+import { createApp } from 'vue';
+
 
 const labelPosition = ref('top')
 const submitLogin = () =>{
@@ -38,6 +40,13 @@ const sysUser = reactive({
   email: '',
   mobile: '',
 })
+const TodoItem = {
+  props: ['todo'],
+  template: `<li>{{ todo.text }}</li>`
+}
+
+
+
 </script>
 <style scoped>
 #login{

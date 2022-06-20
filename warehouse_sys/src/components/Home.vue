@@ -1,16 +1,29 @@
 <template>
-
     <div class="common-layout">
         <el-container>
-            <el-header>        
-                <el-button type="primary" @click="ToWarehousing">入库</el-button>
-                <el-button type="primary" @click="ToScreen">筛选</el-button>
+            <el-header>
+                <el-dropdown class="header-img">
+                    <span class="el-dropdown-link">
+                        <el-avatar :size="30" src='https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png' />    
+                        <div class="user-name">Admin</div>
+                    </span>
+                    <template #dropdown>
+                    <el-dropdown-menu>
+                        <el-dropdown-item>退出登录</el-dropdown-item>
+                    </el-dropdown-menu>
+                    </template>
+                </el-dropdown>
+                <div class="btns-box">
+                    <span class="header-btn" @click="ToScreen">筛选</span>
+                    <el-button  type="primary" @click="ToWarehousing">入库</el-button>
+                </div>
+                
             </el-header>
             <el-affix :offset="0">
                 <el-main>
                     <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
                         <el-from-item class="main_search">
-                            <el-input class="input" v-model="search" placeholder="请输入器件型号"/>
+                            <el-input class="input" v-model="search" placeholder=" "/>
                             <el-button class="search_btn" type="primary">
                                 <el-icon style="vertical-align: middle">
                                 <Search/>
@@ -18,18 +31,16 @@
                                 <span style="vertical-align: middle"> 搜索 </span>
                             </el-button>
                         </el-from-item>
-                        <el-form-item v-for="(item, index) in form" :key="index" :label="item.name">
+                        <!-- <el-form-item v-for="(item, index) in form" :key="index" :label="item.name">
                             <el-select v-if="item.type=='select'" v-model="item.warehouse">
                                 <el-option v-for="(value,index) in item.warehouses" :key="index" :value="value.value" />
                             </el-select>
                             <el-input v-if="item.type=='input'" v-model="form.name" />
-                        </el-form-item>
-                        
+                        </el-form-item> -->
                     </el-form>
                 </el-main>
             </el-affix>
             <el-footer>
-                main
             </el-footer>
         </el-container>
     </div>
@@ -94,38 +105,63 @@ const onSubmit = () => {
 
 <style scoped>
 .el-header{
-    background-color: aliceblue;
-    padding-top: 20px;
+    height:60px;
+    padding: 15px 50px 0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
-.el-header > .el-button{
-    width: 70px;
-    height: 35px;
+.el-dropdown-link{
+    display: flex;
 }
-.input{
-    width: 100%;
+.user-name{
+    text-align: center;
+    line-height: 30px;
+    margin-left: 10px;
     font-size: 16px;
-    height: 40px;
 }
+.btns-box{
+    display: flex;
+}
+/* 筛选按钮 */
+.header-btn{
+    display: block;
+    width: 60px;
+    text-align: center;
+    color: #409eff;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+/* 搜索框 */
+.input{
+    width: 500px;
+    font-size: 16px;
+    height: 45px;
+}
+
+/* 搜索 */
 .search_btn{
-    height: 40px;
-    width: 100px;
+    height: 45px;
+    width: 110px;
+    font-size: 17px;
 }
 
 .el-main{
+    margin-top:200px;
     display: flex;
     justify-content: center;
-    background-color: aliceblue;
 }
 .main_search{
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
+.demo-form-inline{
+    width: 100%;
+}
 .el-footer{
     display: flex;
     justify-content: center;
-    height: 2000px;
 }
 </style>

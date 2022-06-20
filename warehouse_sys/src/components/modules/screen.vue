@@ -8,35 +8,68 @@
                 <el-input class="input" v-model="search" placeholder="请输入元器件型号" />
                 <el-button type="primary">搜索</el-button>
         </el-main>
-        <el-footer>Main</el-footer>
+        <el-footer>
+                    <el-form-item v-for="(item, index) in form" :key="index" :label="item.name">
+                        <el-select v-if="item.type=='select'" v-model="item.warehouse">
+                            <el-option v-for="(value,index) in item.warehouses" :key="index" :value="value.value" />
+                        </el-select>
+                        <el-input v-if="item.type=='input'" v-model="form.name" />
+                    </el-form-item>
+        </el-footer>
         </el-container>
 
-
-        <div id="todo-list-app">
-  <ol>
-     <!--
-      现在我们为每个 todo-item 提供 todo 对象
-      todo 对象是变量，即其内容可以是动态的。
-      我们也需要为每个组件提供一个“key”，稍后再
-      作详细解释。
-    -->
-    <todo-item
-      v-for="item in groceryList"
-      v-bind:todo="item"
-      v-bind:key="item.id"
-    ></todo-item>
-  </ol>
-</div>
     </div>
 </template>
 
 <script setup>
 import router from "../../router/index.js";
+import { ref } from 'vue'
+import { reactive } from 'vue'
 const Toback = () =>{
     router.push('/home')
 }
 
-
+const form = reactive([
+    {   
+        name: '库区',
+        type: 'select',
+        warehouse: ' ',
+        warehouses: [
+            {
+                value:'南校区',
+            },{
+                value:'北校区',
+            }
+        ],
+    },{
+        name: '仓库',
+        type: 'select',
+        warehouse: ' ',
+        warehouses: [
+            {
+                value:'教学楼一楼',
+            },{
+                value:'实训楼二楼',
+            },{
+                value:'实训楼四楼',
+            }
+        ],
+    },{
+        name: '阻值',
+        type: 'input',
+        warehouse: ' ',
+        warehouses: [
+            {
+                value:'教学楼一楼',
+            },{
+                value:'实训楼二楼',
+            },{
+                value:'实训楼四楼',
+            }
+        ],
+    },
+    ]
+)
 
 </script>
 

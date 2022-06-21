@@ -9,12 +9,12 @@
                 <el-button type="primary">搜索</el-button>
         </el-main>
         <el-footer>
-                    <el-form-item v-for="(item, index) in form" :key="index" :label="item.name">
-                        <el-select v-if="item.type=='select'" v-model="item.warehouse">
-                            <el-option v-for="(value,index) in item.warehouses" :key="index" :value="value.value" />
-                        </el-select>
-                        <el-input v-if="item.type=='input'" v-model="form.name" />
-                    </el-form-item>
+            <el-form-item v-for="(item, index) in form" :key="index" :label="item.name">
+                <el-select v-if="item.type=='select'" v-model="item.warehouse">
+                    <el-option v-for="(value,index) in item.warehouses" :key="index" :value="value.value" />
+                </el-select>
+                <el-input v-if="item.type=='input'" v-model="form.name" />
+            </el-form-item>
         </el-footer>
         </el-container>
 

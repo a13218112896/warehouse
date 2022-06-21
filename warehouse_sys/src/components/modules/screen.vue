@@ -18,14 +18,17 @@
                     <el-button  type="primary" @click="toBack">返回首页</el-button>
                 </div>
             </el-header>
-            <el-footer>
-                <el-form-item v-for="(item, index) in form" :key="index" :label="item.name">
-                    <el-select v-if="item.type=='select'" v-model="item.warehouse">
-                        <el-option v-for="(value,index) in item.warehouses" :key="index" :value="value.value" />
-                    </el-select>
-                    <el-input v-if="item.type=='input'" v-model="form.name" />
-                </el-form-item>
-            </el-footer>
+            <el-main>
+                <el-form class="screen-form">
+                    <el-form-item class="form-item" v-for="(item, index) in form" :key="index" >
+                        <span>{{item.name}}</span>
+                        <el-select placeholder="Select" v-if="item.type=='select'" v-model="item.warehouse">
+                            <el-option style="display: block;" v-for="(value,index) in item.warehouses" :key="index" :value="value.value"  />
+                        </el-select>
+                        <el-input class="form-input" style="width: 208px" v-if="item.type=='input'" v-model="form.name" />
+                    </el-form-item>
+                </el-form>
+            </el-main>
         </el-container>
     </div>
 </template>
@@ -33,15 +36,62 @@
 <script setup>
 import router from "../../router/index.js";
 import { ref, reactive } from 'vue'
+// 路由跳转
 const toBack = () =>{
     router.push('/home')
 }
 const toWarehousing = () =>{
     router.push('/warehousing')
 }
+// 属性对象
 const form = reactive(
     [
         {   
+            name: '库区',
+            type: 'select',
+            warehouse: ' ',
+            warehouses: 
+            [
+                {
+                    value:'南校区',
+                },
+                {
+                    value:'北校区',
+                }
+            ],
+        },{
+            name: '封装',
+            type: 'select',
+            warehouse: ' ',
+            warehouses: 
+            [
+                {
+                    value:'axial lead',
+                },
+                {
+                    value:'D2PAK',
+                },
+                {
+                    value:'ITP-220AB',
+                }
+            ],
+        },{
+            name: '阻值',
+            type: 'input',
+            warehouse: ' ',
+            warehouses: 
+            [
+                {
+                    value:'教学楼一楼',
+                },
+                {
+                    value:'实训楼二楼',
+                },
+                {
+                    value:'实训楼四楼',
+                }
+            ],
+        },{   
             name: '库区',
             type: 'select',
             warehouse: ' ',
@@ -121,5 +171,12 @@ const form = reactive(
     line-height: 30px;
     margin-right: 20px;
     cursor: pointer;
+}
+.form-item{
+    display: inline-block;
+    margin: 0 40px;
+}
+.screen-form{
+
 }
 </style>

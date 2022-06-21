@@ -14,22 +14,21 @@
                     </template>
                 </el-dropdown>
                 <div class="btns-box">
-                    <span class="header-btn" @click="toScreen">筛选</span>
-                    <el-button  type="primary" @click="toWarehousing">入库</el-button>
+                    <span class="header-btn" @click="ToScreen">筛选</span>
+                    <el-button  type="primary" @click="ToWarehousing">入库</el-button>
                 </div>
+                
             </el-header>
             <el-affix :offset="0">
                 <el-main>
                     <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
-                        <el-from-item class="main_search">
-                            <el-input class="from-input" v-model="search" placeholder=" "/>
-                            <el-button class="search_btn" type="primary">
-                                <el-icon style="vertical-align: middle">
-                                <Search/>
-                                </el-icon>
-                                <span style="vertical-align: middle"> 搜索 </span>
-                            </el-button>
-                        </el-from-item>
+                        <el-input class="input" v-model="search" placeholder=" "/>
+                        <el-button class="search_btn" type="primary">
+                            <el-icon style="vertical-align: middle">
+                            <Search/>
+                            </el-icon>
+                            <span style="vertical-align: middle"> 搜索 </span>
+                        </el-button>
                     </el-form>
                 </el-main>
             </el-affix>
@@ -43,10 +42,10 @@
 import router from '../router/index.js'
 import { ref } from 'vue'
 import { reactive } from 'vue'
-const toWarehousing = () =>{
+const ToWarehousing = () =>{
     router.push('/warehousing')
 }
-const toScreen = () =>{
+const ToScreen = () =>{
     router.push('/screen')
 }
 const search = ref('')
@@ -127,7 +126,7 @@ const onSubmit = () => {
     cursor: pointer;
 }
 /* 搜索框 */
-.from-input{
+.input{
     width: 500px;
     font-size: 16px;
     height: 45px;
@@ -145,13 +144,11 @@ const onSubmit = () => {
     display: flex;
     justify-content: center;
 }
-.main_search{
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-}
+
 .demo-form-inline{
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .el-footer{
     display: flex;

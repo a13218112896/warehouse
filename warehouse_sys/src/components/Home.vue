@@ -14,16 +14,15 @@
                     </template>
                 </el-dropdown>
                 <div class="btns-box">
-                    <span class="header-btn" @click="ToScreen">筛选</span>
-                    <el-button  type="primary" @click="ToWarehousing">入库</el-button>
+                    <span class="header-btn" @click="toScreen">筛选</span>
+                    <el-button  type="primary" @click="toWarehousing">入库</el-button>
                 </div>
-                
             </el-header>
             <el-affix :offset="0">
                 <el-main>
                     <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
                         <el-from-item class="main_search">
-                            <el-input class="input" v-model="search" placeholder=" "/>
+                            <el-input class="from-input" v-model="search" placeholder=" "/>
                             <el-button class="search_btn" type="primary">
                                 <el-icon style="vertical-align: middle">
                                 <Search/>
@@ -31,12 +30,6 @@
                                 <span style="vertical-align: middle"> 搜索 </span>
                             </el-button>
                         </el-from-item>
-                        <!-- <el-form-item v-for="(item, index) in form" :key="index" :label="item.name">
-                            <el-select v-if="item.type=='select'" v-model="item.warehouse">
-                                <el-option v-for="(value,index) in item.warehouses" :key="index" :value="value.value" />
-                            </el-select>
-                            <el-input v-if="item.type=='input'" v-model="form.name" />
-                        </el-form-item> -->
                     </el-form>
                 </el-main>
             </el-affix>
@@ -50,10 +43,10 @@
 import router from '../router/index.js'
 import { ref } from 'vue'
 import { reactive } from 'vue'
-const ToWarehousing = () =>{
+const toWarehousing = () =>{
     router.push('/warehousing')
 }
-const ToScreen = () =>{
+const toScreen = () =>{
     router.push('/screen')
 }
 const search = ref('')
@@ -134,7 +127,7 @@ const onSubmit = () => {
     cursor: pointer;
 }
 /* 搜索框 */
-.input{
+.from-input{
     width: 500px;
     font-size: 16px;
     height: 45px;

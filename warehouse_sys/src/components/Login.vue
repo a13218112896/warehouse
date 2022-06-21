@@ -5,7 +5,7 @@
       :label-position="labelPosition"
       label-width="100px"
       :model="sysUser"
-      style="max-width: 400px"
+      style="max-width: 450px"
       class="login-containter"
     >
       <span class="login-text">仓库管理系统</span>
@@ -22,12 +22,9 @@
 
 <script setup>
 import router from '../router/index.js';
-import { reactive, ref, defineComponent } from 'vue';
-import { createApp } from 'vue';
-import { onMounted } from 'vue';
-// 引入icon
+import { reactive, ref, defineComponent, createApp, onMounted } from 'vue';
+// 从element-plus引入icon图标
 import { User, Key} from '@element-plus/icons-vue';
-
 
 const labelPosition = ref('top')
 // 路由跳转

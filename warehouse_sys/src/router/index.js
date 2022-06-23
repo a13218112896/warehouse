@@ -3,21 +3,25 @@ const router = createRouter({
     history: createWebHistory(),
     routes:[
         {
-            name: 'login',
             path: '/',
-            component: () => import('../components/Login.vue')
+            redirect: '/login',
+        },
+        {
+            name: 'login',
+            path: '/login',
+            component: () => import('../views/login/Login.vue')
         },{
             name: 'home',
             path: '/home',
-            component: () => import('../components/Home.vue'),
+            component: () => import('../views/home/Home.vue'),
         },{
             name: 'warehousing',
             path: '/warehousing',
-            component: () => import('../components/modules/Warehousing.vue')
+            component: () => import('../views/modules/warehousing/Warehousing.vue')
         },{
             name: 'screen',
             path: '/screen',
-            component: () => import('../components/modules/screen.vue')
+            component: () => import('../views/modules/screen/Screen.vue')
         },
     ]
 })

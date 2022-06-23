@@ -19,22 +19,47 @@
                 </div>
             </el-header>
             <el-main>
+                <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
+                        <el-input class="input" v-model="search" placeholder=" "/>
+                        <el-button class="search_btn" type="primary">
+                            <el-icon style="vertical-align: middle">
+                            <Search/>
+                            </el-icon>
+                            <span style="vertical-align: middle"> 搜索 </span>
+                        </el-button>
+                </el-form>
                 <el-form class="screen-form">
                     <el-form-item class="form-item" v-for="(item, index) in form" :key="index" >
-                        <span>{{item.name}}</span>
-                        <el-select placeholder="Select" v-if="item.type=='select'" v-model="item.warehouse">
+                        <span class="form-label">{{item.name}}</span>
+                        <el-select style="width: 100px" placeholder="Select" v-if="item.type=='select'" v-model="item.warehouse">
                             <el-option style="display: block;" v-for="(value,index) in item.warehouses" :key="index" :value="value.value"  />
                         </el-select>
-                        <el-input class="form-input" style="width: 208px" v-if="item.type=='input'" v-model="form.name" />
+                        <el-input class="form-input" style="width: 100px" v-if="item.type=='input'" v-model="form.name" />
                     </el-form-item>
                 </el-form>
             </el-main>
+            <el-footer>
+                <el-table :data="tableData" style="width: 100%">
+                    <el-table-column type="expand">
+                    <template #default="props">
+                        <div m="4">
+                            <p m="t-0 b-2">State: {{ props.row.state }}</p>
+                            <p m="t-0 b-2">City: {{ props.row.city }}</p>
+                            <p m="t-0 b-2">Address: {{ props.row.address }}</p>
+                            <p m="t-0 b-2">Zip: {{ props.row.zip }}</p>
+                        </div>
+                    </template>
+                    </el-table-column>
+                    <el-table-column label="Date" prop="date" />
+                    <el-table-column label="Name" prop="name" />
+                </el-table>
+            </el-footer>
         </el-container>
     </div>
 </template>
 
 <script setup>
-import router from "../../router/index.js";
+import router from "../../../router/index.js";
 import { ref, reactive } from 'vue'
 // 路由跳转
 const toBack = () =>{
@@ -139,7 +164,64 @@ const form = reactive(
         },
     ]
 )
-
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+  },
+  {
+    date: '2016-05-08',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+  },
+  {
+    date: '2016-05-06',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+  },
+  {
+    date: '2016-05-07',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+  },
+]
 </script>
 
 <style scoped>
@@ -148,6 +230,7 @@ const form = reactive(
     padding: 15px 50px 0;
     display: flex;
     justify-content: space-between;
+    background-color: #e7f2ff;  
 }
 .el-dropdown-link{
     display: flex;
@@ -172,11 +255,40 @@ const form = reactive(
     margin-right: 20px;
     cursor: pointer;
 }
+.el-main{
+    /* background-color: #e6f3ff; */
+    padding: 0 40px;
+}
+.demo-form-inline{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin:20px 0;
+}
+/* .screen-form{
+    
+} */
+/* 搜索框 */
+.input{
+    width: 500px;
+    font-size: 16px;
+    height: 45px;
+}
+/* 搜索 */
+.search_btn{
+    height: 45px;
+    width: 110px;
+    font-size: 17px;
+}
 .form-item{
     display: inline-block;
-    margin: 0 40px;
+    margin: 10px 15px;
 }
-.screen-form{
-
+.form-label{
+    display: inline-block;
+    margin-right: 10px;
+}
+.el-footer{
+    padding: 0 40px;
 }
 </style>

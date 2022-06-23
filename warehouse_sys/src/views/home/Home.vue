@@ -17,7 +17,6 @@
                     <span class="header-btn" @click="ToScreen">筛选</span>
                     <el-button  type="primary" @click="ToWarehousing">入库</el-button>
                 </div>
-                
             </el-header>
             <el-affix :offset="0">
                 <el-main>
@@ -39,7 +38,7 @@
 </template>
 
 <script setup>
-import router from '../router/index.js'
+import router from '../../router/index.js'
 import { ref } from 'vue'
 import { reactive } from 'vue'
 const ToWarehousing = () =>{
@@ -57,7 +56,8 @@ const form = reactive([
         warehouses: [
             {
                 value:'南校区',
-            },{
+            },
+            {
                 value:'北校区',
             }
         ],
@@ -101,6 +101,9 @@ const onSubmit = () => {
     padding: 15px 50px 0;
     display: flex;
     justify-content: space-between;
+    background-color: #e7f2ff;  
+    position: fixed;
+    width: 100%;
 }
 .el-dropdown-link{
     display: flex;
@@ -125,6 +128,11 @@ const onSubmit = () => {
     margin-right: 20px;
     cursor: pointer;
 }
+.el-main{
+    margin-top:300px;
+    display: flex;
+    justify-content: center;
+}
 /* 搜索框 */
 .input{
     width: 500px;
@@ -139,11 +147,7 @@ const onSubmit = () => {
     font-size: 17px;
 }
 
-.el-main{
-    margin-top:200px;
-    display: flex;
-    justify-content: center;
-}
+
 
 .demo-form-inline{
     width: 100%;

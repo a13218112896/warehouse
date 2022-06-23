@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import router from "../../router/index.js";
+import router from "../../../router/index.js";
 import { ref, reactive } from 'vue'
 const toBack = () =>{
     router.push('/home')
@@ -44,7 +44,8 @@ const toScreen = () =>{
     padding: 15px 50px 0;
     display: flex;
     justify-content: space-between;
-}
+    background-color: #e7f2ff;  
+} 
 .el-dropdown-link{
     display: flex;
 }

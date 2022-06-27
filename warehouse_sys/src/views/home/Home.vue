@@ -9,7 +9,7 @@
                     </span>
                     <template #dropdown>
                     <el-dropdown-menu>
-                        <el-dropdown-item>退出登录</el-dropdown-item>
+                        <el-dropdown-item @click="logOut">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -47,9 +47,12 @@ const ToWarehousing = () =>{
 const ToScreen = () =>{
     router.push('/screen')
 }
+const logOut = () =>{
+    router.push('/login')
+}
 const search = ref('')
 const form = reactive([
-    {   
+    {
         name: '库区',
         type: 'select',
         warehouse: ' ',
@@ -113,6 +116,8 @@ const onSubmit = () => {
     line-height: 30px;
     margin-left: 10px;
     font-size: 16px;
+    color: #409eff;
+    cursor: default;
 }
 .btns-box{
     display: flex;

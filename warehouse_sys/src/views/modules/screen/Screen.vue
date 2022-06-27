@@ -39,28 +39,19 @@
                 </el-form>
             </el-main>
             <el-footer>
-                <el-table :data="tableData" style="width: 100%">
-                    <el-table-column type="expand">
-                    <template #default="props">
-                        <div m="4">
-                            <p m="t-0 b-2">State: {{ props.row.state }}</p>
-                            <p m="t-0 b-2">City: {{ props.row.city }}</p>
-                            <p m="t-0 b-2">Address: {{ props.row.address }}</p>
-                            <p m="t-0 b-2">Zip: {{ props.row.zip }}</p>
-                        </div>
-                    </template>
-                    </el-table-column>
-                    <el-table-column label="Date" prop="date" />
-                    <el-table-column label="Name" prop="name" />
-                </el-table>
-            </el-footer>
+                <ul>
+                    <screenForm :screenForm="screenForm"></screenForm>
+                </ul>
+            </el-footer>    
         </el-container>
     </div>
 </template>
 
 <script setup>
 import router from "../../../router/index.js";
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed,defineComponent} from 'vue'
+import ScreenForm from '../../../components/ScreenForm.vue'
+
 // 路由跳转
 const toBack = () =>{
     router.push('/home')
@@ -68,6 +59,30 @@ const toBack = () =>{
 const toWarehousing = () =>{
     router.push('/warehousing')
 }
+const screenForm = reactive(
+    [
+        {
+            id: 1,
+            model: 'HXS320F28034PNT',
+            value: 'HXS320F28034PNT',
+            type:'数字信号处理器',
+            brand: '安森美',
+            encapsulation: ' LQFP-80',
+            num: 100,
+            remarks: ''
+        },
+        {
+            id: 2,
+            model: 'HXS320F28034PNT',
+            value: 'HXS320F28034PNT',
+            type:'数字信号处理器',
+            brand: '安森美',
+            encapsulation: ' LQFP-80',
+            num: 100,
+            remarks: ''
+        },
+    ]
+)
 // 属性对象
 const form = reactive(
     [
@@ -145,7 +160,8 @@ const form = reactive(
                     value:'实训楼四楼',
                 }
             ],
-        },{
+        },
+        {
             name: '阻值',
             type: 'input',
             warehouse: ' ',
@@ -164,64 +180,8 @@ const form = reactive(
         },
     ]
 )
-const tableData = [
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-08',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-06',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-07',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-]
+
+
 </script>
 
 <style scoped>
@@ -257,7 +217,7 @@ const tableData = [
 }
 .el-main{
     /* background-color: #e6f3ff; */
-    padding: 0 40px;
+    padding: 0 50px;
 }
 .demo-form-inline{
     width: 100%;
@@ -289,6 +249,7 @@ const tableData = [
     margin-right: 10px;
 }
 .el-footer{
-    padding: 0 40px;
+    padding: 0 50px;
+    height: 100%;
 }
 </style>

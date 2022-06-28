@@ -21,7 +21,7 @@
     </div>
 </template>
 <script setup>
-  import router from '../router/index.js';
+  import router from '../../router/index.js';
   import { reactive, ref, defineComponent, createApp, onMounted} from 'vue';
   import { User, Key} from '@element-plus/icons-vue';
   const emit= defineEmits(["getMsg"])
@@ -37,7 +37,7 @@
     mobile: '',
   })
   const submitLogin = () => {
-    router.push('home')
+    // router.push('home')
     emit('getMsg','向父组件传值')
   };
     const toSignin = () => {

@@ -21,16 +21,11 @@
         </ul>
         <div class="form-descriptions">
             <li>
-                <span style="color:#9a9a9a; font-size:14px;">编号:</span>
-                <span style="color:#333333; font-size:14px;">{{item.id}}</span>
+                <el-button>详情</el-button>
             </li>
             <li>
-                <span style="color:#9a9a9a; font-size:14px;">型号:</span>
-                <span style="color:#333333; font-size:14px;">{{item.model}}</span>
-            </li>
-            <li>
-                <span style="color:#9a9a9a; font-size:14px;">厂商:</span>
-                <span style="color:#333333x``; font-size:14px;">{{item.brand}}</span>
+                <span style="color:#9a9a9a; font-size:14px;">仓库剩余数量:</span>
+                <span style="color:#333333; font-size:14px;">{{item.num}}</span>
             </li>
         </div>
     </div>
@@ -64,8 +59,11 @@ li{
     
 }
 .form-item{
-    padding: 0 30px;
-    margin-top: 20px;
+    padding: 20px 30px;
+    border-top: 1px solid rgb(228, 228, 228);
+}
+.form-item:hover{
+    background: #f6faff;
 }
 /* 清除浮动  */
 .form-item:after{content:'';display:block;clear:both;}

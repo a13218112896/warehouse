@@ -1,16 +1,18 @@
 <template>
   <div id="login">
     <canvas id="canvas"></canvas>
-    <signin v-if= "isshow" @getMsg="signinMsg"></signin>
-    <signup v-if= "!isshow" @getMsg="signupMsg"></signup>
+    <signin v-if= "signinShow" @getMsg="signinMsg"></signin>
+    <signup v-if= "signupShow" @getMsg="signupMsg"></signup>
+    <signupIng v-if= "signupIngShow" @getMsg="signupIngMsg"></signupIng>
   </div>  
 </template>
 
 <script setup>
   import { reactive, ref, defineComponent, createApp, onMounted } from 'vue';
   // 引入登录/注册组件
-  import Signin from '../../components/Signin.vue'
-  import Signup from '../../components/Signup.vue'
+  import Signin from '../../components/login/Signin.vue'
+  import Signup from '../../components/login/Signup.vue'
+  import SignupIng from '../../components/login/SignupIng.vue'
   // 登录页背景
   const canvasBg = () => {
     var bodywidth = document.body.clientWidth;
@@ -29,13 +31,23 @@
     }
   }
   // 控制登录注册组件的展示
-  const isshow = ref(true)
+  const signinShow = ref(true)
+  const signupShow = ref(false)
+  const signupIngShow = ref(false)
+
   const signinMsg = (msg) =>{
-    isshow.value = false
+    signinShow.value = false
+    signupShow.value = true
     console.log(msg)
   }
   const signupMsg = (msg) =>{
-    isshow.value = true;
+    signupShow.value = false
+    signupIngShow.value = true
+    console.log(msg)
+  }
+  const signupIngMsg = (msg) =>{
+    signinShow.value = true
+    signupIngShow.value = false
     console.log(msg)
   }
   // 生命周期

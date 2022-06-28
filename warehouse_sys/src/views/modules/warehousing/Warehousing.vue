@@ -2,27 +2,35 @@
     <div>
         <el-container>
             <el-header>
-                <el-dropdown class="header-img">
-                    <span class="el-dropdown-link">
-                        <el-avatar :size="30" src='https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png' />    
-                        <div class="user-name">Admin</div>
-                    </span>
-                    <template #dropdown>
-                    <el-dropdown-menu>
-                        <el-dropdown-item>退出登录</el-dropdown-item>
-                    </el-dropdown-menu>
-                    </template>
-                </el-dropdown>
+                <userMessage></userMessage>
                 <div class="btns-box">
                     <span class="header-btn" @click="toScreen">筛选</span>
                     <el-button  type="primary" @click="toBack">返回首页</el-button>
                 </div>
             </el-header>
-        <el-main>
-                <el-input class="input" v-model="search" placeholder="请输入元器件型号" />
-                <el-button type="primary">搜索</el-button>
-        </el-main>
-        <el-footer>Main</el-footer>
+            <el-main>
+                <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
+                    <el-input class="input" v-model="search" placeholder=""/>
+                    <el-button class="search-btn" type="primary" @click="searchGoods">
+                        <el-icon style="vertical-align: middle">
+                        <Search/>
+                        </el-icon>
+                        <span style="vertical-align: middle"> 搜索 </span>
+                    </el-button>
+                </el-form>
+                <el-form class="screen-form">
+                    <el-form-item class="form-item" v-for="(item, index) in form.values" :key="index">
+                        <span class="form-label">{{item.name}}</span>
+                        <el-select style="width: 100px" placeholder="Select" v-if="item.type=='select'" v-model="item.warehouse">
+                            <el-option style="display: block;" v-for="(value,index) in item.warehouses" :key="index" :value="value.value"  />
+                        </el-select>
+                        <el-input class="form-input" style="width: 100px" v-if="item.type=='input'" v-model="form.name" />
+                    </el-form-item>
+                </el-form>
+            </el-main>
+            <el-footer>
+                
+            </el-footer>
         </el-container>
     </div>
 </template>
@@ -30,12 +38,74 @@
 <script setup>
 import router from "../../../router/index.js";
 import { ref, reactive } from 'vue'
+import UserMessage from '../../../components/home/UserMessage.vue';
 const toBack = () =>{
     router.push('/home')
 }
 const toScreen = () =>{
     router.push('/screen')
 }
+// 属性写入（搜索按钮点击事件）
+const searchGoods = () =>{
+    form.values = formText
+}
+// 属性对象
+const form = reactive([])
+const formText = reactive(
+    [
+        {
+            name: '库区',
+            type: 'select',
+            warehouse: ' ',
+            warehouses: 
+            [
+                {
+                    value:'南校区',
+                },
+                {
+                    value:'北校区',
+                }
+            ],
+        },{
+            name: '仓库',
+            type: 'select',
+            warehouse: ' ',
+            warehouses: 
+            [
+                {
+                    value:'教学楼一楼',
+                },
+                {
+                    value:'实训楼二楼',
+                },
+                {
+                    value:'实训楼四楼',
+                }
+            ],
+        },{
+            name: '封装',
+            type: 'select',
+            warehouse: ' ',
+            warehouses: 
+            [
+                {
+                    value:'axial lead',
+                },
+                {
+                    value:'D2PAK',
+                },
+                {
+                    value:'ITP-220AB',
+                }
+            ],
+        },{
+            name: '阻值',
+            type: 'input',
+            warehouse: ' ',
+        },  
+    ]
+)
+
 </script>
 
 <style scoped>
@@ -68,5 +138,51 @@ const toScreen = () =>{
     line-height: 30px;
     margin-right: 20px;
     cursor: pointer;
+}
+
+.el-main{
+    /* background-color: #e6f3ff; */
+    padding: 0 0px;
+}
+.demo-form-inline{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding:20px 0;
+    background-color: #fff;
+}
+.screen-form{
+    text-align: center;
+    padding: 0 50px;
+}
+/* 搜索框 */
+.input{
+    width: 500px;
+    font-size: 16px;
+    height: 45px;
+}
+
+/* 搜索 */
+.search-btn{
+    height: 45px;
+    width: 110px;
+    font-size: 17px;
+    border-radius: 0px 5px 5px 0px ;
+    position: relative;
+    top: 0px;
+    left: -10px;
+}
+
+.form-item{
+    display: inline-block;
+    margin: 10px 15px;
+}
+.form-label{
+    display: inline-block;
+    margin-right: 10px;
+}
+.el-footer{
+    padding: 0 50px;
+    height: 100%;
 }
 </style>

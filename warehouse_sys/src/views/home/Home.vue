@@ -2,17 +2,7 @@
     <div class="common-layout">
         <el-container>
             <el-header>
-                <el-dropdown class="header-img">
-                    <span class="el-dropdown-link">
-                        <el-avatar :size="30" src='https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png' />    
-                        <div class="user-name">Admin</div>
-                    </span>
-                    <template #dropdown>
-                    <el-dropdown-menu>
-                        <el-dropdown-item @click="logOut">退出登录</el-dropdown-item>
-                    </el-dropdown-menu>
-                    </template>
-                </el-dropdown>
+                <userMessage></userMessage>
                 <div class="btns-box">
                     <span class="header-btn" @click="ToScreen">筛选</span>
                     <el-button  type="primary" @click="ToWarehousing">入库</el-button>
@@ -21,8 +11,8 @@
             <el-affix :offset="0">
                 <el-main>
                     <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
-                        <el-input class="input" v-model="search" placeholder=" "/>
-                        <el-button class="search_btn" type="primary">
+                        <el-input style="border-radius: 0 0 0 0;" class="input" v-model="search" placeholder=""/>
+                        <el-button class="search-btn" type="primary">
                             <el-icon style="vertical-align: middle">
                             <Search/>
                             </el-icon>
@@ -41,6 +31,7 @@
 import router from '../../router/index.js'
 import { ref } from 'vue'
 import { reactive } from 'vue'
+import UserMessage from '../../components/home/UserMessage.vue';
 const ToWarehousing = () =>{
     router.push('/warehousing')
 }
@@ -116,7 +107,6 @@ const onSubmit = () => {
     line-height: 30px;
     margin-left: 10px;
     font-size: 16px;
-    color: #409eff;
     cursor: default;
 }
 .btns-box{
@@ -146,10 +136,14 @@ const onSubmit = () => {
 }
 
 /* 搜索 */
-.search_btn{
+.search-btn{
     height: 45px;
     width: 110px;
     font-size: 17px;
+    border-radius: 0px 5px 5px 0px ;
+    position: relative;
+    top: 0px;
+    left: -10px;
 }
 
 

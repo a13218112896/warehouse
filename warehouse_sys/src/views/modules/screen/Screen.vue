@@ -1,14 +1,15 @@
 <template>
     <div>
         <el-container>
-            <el-header>
-                <userMessage></userMessage>
-                <div class="btns-box">
-                    <span class="header-btn" @click="toWarehousing">入库</span>
-                    <el-button  type="primary" @click="toBack">返回首页</el-button>
-                </div>
-            </el-header>
-            
+            <el-affix :offset="0">
+                <el-header>
+                    <userMessage></userMessage>
+                    <div class="btns-box">
+                        <span class="header-btn" @click="toWarehousing">入库</span>
+                        <el-button  type="primary" @click="toBack">返回首页</el-button>
+                    </div>
+                </el-header>
+            </el-affix>
             <el-main>
                 <el-affix :offset="0">
                     <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
@@ -33,7 +34,7 @@
             </el-main>
             <el-footer>
                 <ul>
-                    <screenForm :screenForm="screenForm"></screenForm>
+                    <screenForm :screenForm="screenForm" ></screenForm>
                 </ul>
             </el-footer>    
         </el-container>
@@ -42,7 +43,7 @@
 
 <script setup>
 import router from "../../../router/index.js";
-import { ref, reactive, computed,defineComponent} from 'vue'
+  import { reactive, ref, defineComponent, createApp, onMounted, defineEmits} from 'vue';
 import ScreenForm from '../../../components/screen/ScreenForm.vue'
 import UserMessage from '../../../components/home/UserMessage.vue';
 
@@ -53,6 +54,10 @@ const toBack = () =>{
 const toWarehousing = () =>{
     router.push('/warehousing')
 }
+// const getData = (msg) =>{
+//     router.push('/detailedInformation',msg)
+//     console.log(msg)
+// }
 // 搜索结果对象
 const screenForm = reactive(
     [
@@ -193,6 +198,7 @@ const form = reactive(
 
 <style scoped>
 .el-header{
+    width: 100%;
     height:60px;
     padding: 15px 50px 0;
     display: flex;
@@ -232,6 +238,7 @@ const form = reactive(
     justify-content: center;
     padding:20px 0;
     background-color: #fff;
+    
 }
 .screen-form{
     text-align: center;

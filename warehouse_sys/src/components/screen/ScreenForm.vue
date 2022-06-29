@@ -21,7 +21,7 @@
         </ul>
         <div class="form-descriptions">
             <li>
-                <el-button>详情</el-button>
+                <el-button @click="transmissionMsg(item)">详情</el-button>
             </li>
             <li>
                 <span style="color:#9a9a9a; font-size:14px;">仓库剩余数量:</span>
@@ -32,11 +32,17 @@
   </div>
 </template>
 <script>
-import { ref, reactive, computed,defineProps} from 'vue'
+  import { reactive, ref, defineComponent, createApp, onMounted, defineEmits} from 'vue';
 export default{
     props: ["screenForm"],
 }
-
+</script>
+<script setup>
+import router from '../../router/index.js';
+const transmissionMsg = (data) => {
+    router.push({path:'/detailedInformation',query:data});
+    // console.log(data.value)
+}
 </script>
 
 <style scoped>

@@ -42,46 +42,47 @@ const logOut = () =>{
     router.push('/login')
 }
 const search = ref('')
-const form = reactive([
-    {
-        name: '库区',
-        type: 'select',
-        warehouse: ' ',
-        warehouses: [
-            {
-                value:'南校区',
-            },
-            {
-                value:'北校区',
-            }
-        ],
-    },{
-        name: '仓库',
-        type: 'select',
-        warehouse: ' ',
-        warehouses: [
-            {
-                value:'教学楼一楼',
-            },{
-                value:'实训楼二楼',
-            },{
-                value:'实训楼四楼',
-            }
-        ],
-    },{
-        name: '阻值',
-        type: 'input',
-        warehouse: ' ',
-        warehouses: [
-            {
-                value:'教学楼一楼',
-            },{
-                value:'实训楼二楼',
-            },{
-                value:'实训楼四楼',
-            }
-        ],
-    },
+const form = reactive(
+    [
+        {
+            name: '库区',
+            type: 'select',
+            warehouse: ' ',
+            warehouses: [
+                {
+                    value:'南校区',
+                },
+                {
+                    value:'北校区',
+                }
+            ],
+        },{
+            name: '仓库',
+            type: 'select',
+            warehouse: ' ',
+            warehouses: [
+                {
+                    value:'教学楼一楼',
+                },{
+                    value:'实训楼二楼',
+                },{
+                    value:'实训楼四楼',
+                }
+            ],
+        },{
+            name: '阻值',
+            type: 'input',
+            warehouse: ' ',
+            warehouses: [
+                {
+                    value:'教学楼一楼',
+                },{
+                    value:'实训楼二楼',
+                },{
+                    value:'实训楼四楼',
+                }
+            ],
+        },
     ]
 )
 const onSubmit = () => {

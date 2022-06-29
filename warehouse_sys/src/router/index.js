@@ -27,6 +27,11 @@ const router = createRouter({
             component: () => import('../views/modules/screen/Screen.vue')
         },
         {
+            name: 'detailedInformation',
+            path: '/detailedInformation',
+            component: () => import('../views/modules/detailedInformation/DetailedInformation.vue')
+        },
+        {
             path: "/:pathMatch(.*)*",
             component: () => import('../views/modules/404/404.vue')
         }

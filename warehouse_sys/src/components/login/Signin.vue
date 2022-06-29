@@ -17,12 +17,11 @@
         <el-button type="primary" class="login-btn" @click="submitLogin">登录</el-button>
         <span class="to-signup" @click="toSignup">没有账号？去注册</span>
       </el-form>
-
     </div>
 </template>
 <script setup>
   import router from '../../router/index.js';
-  import { reactive, ref, defineComponent, createApp, onMounted} from 'vue';
+  import { reactive, ref, defineComponent, createApp, onMounted,defineEmits} from 'vue';
   import { User, Key} from '@element-plus/icons-vue';
   // 子向父传值
   const emit= defineEmits(["getMsg"])

@@ -9,15 +9,18 @@
                 </div>
             </el-header>
             <el-main>
-                <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
-                    <el-input class="input" v-model="search" placeholder=""/>
-                    <el-button class="search-btn" type="primary" @click="searchGoods">
-                        <el-icon style="vertical-align: middle">
-                        <Search/>
-                        </el-icon>
-                        <span style="vertical-align: middle"> 搜索 </span>
-                    </el-button>
-                </el-form>
+                <el-affix :offset="0">
+                    <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
+                        <el-input class="input" v-model="search" placeholder=""/>
+                        <el-button class="search-btn" type="primary" @click="searchGoods">
+                            <el-icon style="vertical-align: middle">
+                            <Search/>
+                            </el-icon>
+                            <span style="vertical-align: middle"> 搜索 </span>
+                        </el-button>
+                    </el-form>
+                </el-affix>
+
                 <el-form class="screen-form">
                     <el-form-item class="form-item" v-for="(item, index) in form.values" :key="index">
                         <span class="form-label">{{item.name}}</span>
@@ -29,7 +32,7 @@
                 </el-form>
             </el-main>
             <el-footer>
-                
+                <addressBox :addressBox="addressBox"></addressBox>
             </el-footer>
         </el-container>
     </div>
@@ -39,6 +42,7 @@
 import router from "../../../router/index.js";
 import { ref, reactive } from 'vue'
 import UserMessage from '../../../components/home/UserMessage.vue';
+import AddressBox from '../../../components/warehousing/AddressBox.vue'
 const toBack = () =>{
     router.push('/home')
 }
@@ -102,9 +106,274 @@ const formText = reactive(
             name: '阻值',
             type: 'input',
             warehouse: ' ',
-        },  
+        },
     ]
 )
+const addressBox = reactive({
+    value: 'HXS320F28034PNT',
+    warehouseBox: [
+        // 仓库
+        {   
+            id: 1,
+            name:'北校区仓库',
+            address:'北校区',
+            reservoir:[
+                // 库区
+                {
+                    warehouseId:11,
+                    name:'教学楼一楼库区',
+                    address: '教学楼一楼',
+                    specifications: '5*5',
+                    // 货架
+                    shelves:{
+                        name:'一号货架',
+                        // 存储盒
+                        shelvesBox:[
+                            {
+                                identifier: '001',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '002',
+                                stuffId: '222',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '003',
+                                stuffId: '333',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '004',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '005',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '006',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '007',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '008',
+                                stuffId: '222',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '009',
+                                stuffId: '333',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '010',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '011',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '012',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '013',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '014',
+                                stuffId: '222',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '015',
+                                stuffId: '333',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '016',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '017',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '018',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '019',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '020',
+                                stuffId: '222',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '021',
+                                stuffId: '333',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '022',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '023',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '024',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '025',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                        ]
+                    }
+                },
+                {
+                    warehouseId:11,
+                    name:'教学楼二楼库区',
+                    address: '教学楼二楼',
+                    specifications: '10*2',
+                    // 货架
+                    shelves:{
+                        name:'一号货架',
+                        // 存储盒
+                        shelvesBox:[
+                            {
+                                identifier: '001',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '002',
+                                stuffId: '222',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '003',
+                                stuffId: '333',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '004',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '005',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '006',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '007',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '008',
+                                stuffId: '222',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '009',
+                                stuffId: '333',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '010',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '011',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '012',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '013',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '014',
+                                stuffId: '222',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '015',
+                                stuffId: '333',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '016',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '017',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '018',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '019',
+                                stuffId: '111',
+                                stuffNum: '100',
+                            },
+                            {
+                                identifier: '020',
+                                stuffId: '222',
+                                stuffNum: '100',
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+    ]
+})
 
 </script>
 

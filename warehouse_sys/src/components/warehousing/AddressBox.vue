@@ -15,10 +15,10 @@
                             编号:{{item.shelves.shelvesBox[(x-1)*Number(item.specifications.split('*')[0])+y-1].identifier}}
                         </div>
                         <div class="shelves-box-stuffId">
-                            id:{{item.shelves.shelvesBox[(x-1)*Number(item.specifications.split('*')[1])+y-1].stuffId}}
+                            id:{{item.shelves.shelvesBox[(x-1)*Number(item.specifications.split('*')[0])+y-1].stuffId}}
                         </div>
                         <div class="shelves-box-stuffNum">
-                            存放物品数量:{{item.shelves.shelvesBox[(x-1)*Number(item.specifications.split('*')[1])+y-1].stuffNum}}
+                            存放物品数量:{{item.shelves.shelvesBox[(x-1)*Number(item.specifications.split('*')[0])+y-1].stuffNum}}
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ export default{
 
 </script>
 
-<style scoped>
+<style scoped language="less">
 .warehouse-box{
     padding: 10px 20px;
     color: #3d3d3d;
@@ -59,6 +59,7 @@ export default{
     /* overflow: auto; */
 }
 .shelves-box{
+    flex:1;
     display: inline-block;
     padding: 15px;
     margin: 0 10px;
@@ -67,6 +68,7 @@ export default{
     border-radius: 5px;
     background-color: #e7f2ff;
     color: #437ab1;
+    word-break: break-all;
     /* min-width: 100px; */
 }
 .shelves-box:hover{

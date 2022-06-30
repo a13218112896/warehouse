@@ -35,6 +35,7 @@
                 <addressBox :addressBox="addressBox"></addressBox>
             </el-footer>
         </el-container>
+        <el-backtop :right="100" :bottom="100" />
     </div>
 </template>
 
@@ -137,17 +138,17 @@ const addressBox = reactive({
                             {
                                 identifier: '002',
                                 stuffId: '222',
-                                stuffNum: '100',
+                                stuffNum: '50',
                             },
                             {
                                 identifier: '003',
                                 stuffId: '333',
-                                stuffNum: '100',
+                                stuffNum: '157',
                             },
                             {
                                 identifier: '004',
                                 stuffId: '111',
-                                stuffNum: '100',
+                                stuffNum: '1345',
                             },
                             {
                                 identifier: '005',
@@ -373,6 +374,9 @@ const addressBox = reactive({
             ]
         },
     ]
+})
+const addressData = reactive({
+
 })
 
 </script>

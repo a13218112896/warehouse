@@ -38,12 +38,13 @@
                 </ul>
             </el-footer>    
         </el-container>
+        <el-backtop :right="100" :bottom="100" />
     </div>
 </template>
 
 <script setup>
 import router from "../../../router/index.js";
-  import { reactive, ref, defineComponent, createApp, onMounted, defineEmits} from 'vue';
+  import { reactive, ref, defineComponent, createApp, onMounted} from 'vue';
 import ScreenForm from '../../../components/screen/ScreenForm.vue'
 import UserMessage from '../../../components/home/UserMessage.vue';
 
@@ -78,7 +79,7 @@ const screenForm = reactive(
             type:'数字信号处理器',
             brand: '安森美',
             encapsulation: ' LQFP-80',
-            num: 100,
+            num: 1023,
             remarks: ''
         },{
             id: 3,
@@ -87,7 +88,7 @@ const screenForm = reactive(
             type:'数字信号处理器',
             brand: '安森美',
             encapsulation: ' LQFP-80',
-            num: 100,
+            num: 1230,
             remarks: ''
         },{
             id: 23,
@@ -96,7 +97,7 @@ const screenForm = reactive(
             type:'数字信号处理器',
             brand: '安森美',
             encapsulation: ' LQFP-80',
-            num: 100,
+            num: 30,
             remarks: ''
         },{
             id: 24,
@@ -105,7 +106,7 @@ const screenForm = reactive(
             type:'数字信号处理器',
             brand: '安森美',
             encapsulation: ' LQFP-80',
-            num: 100,
+            num: 20,
             remarks: ''
         },{
             id: 3,
@@ -114,7 +115,7 @@ const screenForm = reactive(
             type:'数字信号处理器',
             brand: '安森美',
             encapsulation: ' LQFP-80',
-            num: 100,
+            num: 14,
             remarks: ''
         },{
             id: 23,

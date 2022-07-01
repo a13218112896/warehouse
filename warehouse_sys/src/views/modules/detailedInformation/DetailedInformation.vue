@@ -21,7 +21,7 @@
                             <p>总剩余数量：{{data.num}}</p>
                         </div>
                         <div>
-                            <el-select v-model="warehouseAddress" placeholder="请选择出库地点">
+                            <el-select  class="message-form-select" v-model="warehouseAddress" placeholder="请选择出库地点">
                                 <el-option
                                 v-for="item in warehouseAddressData"
                                 :key="item.address"
@@ -29,8 +29,8 @@
                                 :value="item.address"
                                 />
                             </el-select>
-                            <el-input-number style="display: block;" v-model="outNum" :min="1" :max="data.num"/>
-                            <el-button type="primary" class="message-form-button">出库</el-button>
+                            <el-input-number class="message-form-input" style="display: block;" v-model="outNum" :min="1" :max="data.num"/>
+                            <el-button type="primary" class="message-form-button" @click="warehousingData(item.address,item)">出库</el-button>
                         </div>
                     </div>
                 </div>
@@ -71,6 +71,9 @@ const warehouseAddressData = reactive([
         num: '70',
     },
 ])
+const warehousingData = () =>{
+    
+}
 const outNum = ref(1)
 const data = ref({
     // id: 2,
@@ -90,7 +93,7 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .el-header{
     height:60px;
     padding: 15px 50px 0;
@@ -99,71 +102,74 @@ onMounted(() => {
     background-color: #e7f2ff;
     position: fixed;
     width: 100%;
-}
-.el-dropdown-link{
-    display: flex;
-}
-.user-name{
-    text-align: center;
-    line-height: 30px;
-    margin-left: 10px;
-    font-size: 16px;
-    cursor: default;
-}
-.btns-box{
-    display: flex;
-}
-/* 筛选按钮 */
-.header-btn{
-    display: block;
-    width: 60px;
-    text-align: center;
-    color: #409eff;
-    height: 30px;
-    line-height: 30px;
-    margin-right: 20px;
-    cursor: pointer;
+    .btns-box{
+        display: flex;
+    }
+    /* 筛选按钮 */
+    .header-btn{
+        display: block;
+        width: 60px;
+        text-align: center;
+        color: #409eff;
+        height: 30px;
+        line-height: 30px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
 }
 .el-main{
     margin-top:60px;
+    .message-ontainer{
+        padding: 20px 60px;
+        border-top: 1px solid #d0d0d0;
+        border-bottom: 1px solid #d0d0d0;
+        .message-value{
+            margin: 20px 0 30px 0;
+        }
+        .message-value > span:first-child{
+            font-size: 24px;
+            color: #409eff;
+        }
+        .message-value > span:last-child{
+            font-size: 12px;
+            display: inline-block;
+            background-color: #ddedff;
+            color: rgb(143, 143, 143);
+            padding: 3px 5px;
+            margin-left: 10px;
+            vertical-align:text-top;
+        }
+        .message-main{
+            display: flex;
+            justify-content: space-between;
+            padding : 10px 20px;
+            .message-form{
+                padding: 0px  20px;
+            }
+            .message-form > p{
+                color: #3a3a3a;
+                display: block;
+                margin-bottom: 15px;
+            }
+            .message-form-select{
+                margin-bottom: 10px;
+                width: 150px;
+            }
+            .message-form-input{
+                margin-bottom: 10px;
+
+            }
+            .message-form-button{
+                margin-top: 40px;
+                margin-bottom: 10px;
+                display: block;
+                width: 150px;
+            }
+        }
+    }
 }
-.message-ontainer{
-    padding: 20px 60px;
-    border-top: 1px solid #d0d0d0;
-    border-bottom: 1px solid #d0d0d0;
-}
-.message-value{
-    margin: 20px 0 30px 0;
-}
-.message-value > span:first-child{
-    font-size: 24px;
-    color: #409eff;
-}
-.message-value > span:last-child{
-    font-size: 12px;
-    display: inline-block;
-    background-color: #ddedff;
-    color: rgb(143, 143, 143);
-    padding: 3px 5px;
-    margin-left: 10px;
-    vertical-align:text-top;
-}
-.message-main{
-    display: flex;
-    justify-content: space-between;
-    padding : 10px 20px;
-}
-.message-form{
-    padding: 0px  20px;
-}
-.message-form > p{
-    color: #3a3a3a;
-    display: block;
-    margin-bottom: 10px;
-}
-.message-form-button{
-    margin-top: 20px;
-    display: block;
-    width: 150px;
-}
+
+
+
+
 </style>

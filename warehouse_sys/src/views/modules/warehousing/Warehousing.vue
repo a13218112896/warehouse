@@ -20,7 +20,6 @@
                         </el-button>
                     </el-form>
                 </el-affix>
-
                 <el-form class="screen-form">
                     <el-form-item class="form-item" v-for="(item, index) in form.values" :key="index">
                         <span class="form-label">{{item.name}}</span>

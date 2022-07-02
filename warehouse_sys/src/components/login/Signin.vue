@@ -23,6 +23,7 @@
   import router from '../../router/index.js';
   import { reactive, ref, defineComponent, createApp, onMounted,defineEmits} from 'vue';
   import { User, Key} from '@element-plus/icons-vue';
+  import { ElMessage, ElLoading } from 'element-plus'
   // 子向父传值
   const emit= defineEmits(["getMsg"])
   const labelPosition = ref('top')
@@ -38,7 +39,15 @@
   })
   // 登录成功跳转
   const submitLogin = () => {
-    router.push('home')
+    const loadingInstance = ElLoading.service()
+    setTimeout(() => {
+      router.push('home')
+      ElMessage({
+        message: '登录成功',
+        type: 'success',
+      })
+      loadingInstance.close()
+    },300)
   };
   // 传值
   const toSignup = () => {

@@ -7,11 +7,24 @@
         </span>
         <template #dropdown>
         <el-dropdown-menu>
-            <el-dropdown-item>退出登录</el-dropdown-item>
+            <el-dropdown-item @click="toLogin">退出登录</el-dropdown-item>
         </el-dropdown-menu>
         </template>
     </el-dropdown>
 </template>
+<script setup>
+import router from '../../router/index.js'
+import { ElMessage } from 'element-plus'
+
+const toLogin = () => {
+    router.push('/login')
+    ElMessage({
+        message: '退出登录',
+        type: 'warning',
+    })
+}
+</script>
+
 
 <style scoped>
 .el-dropdown-link{

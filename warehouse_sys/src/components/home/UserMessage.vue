@@ -16,6 +16,7 @@
 <style scoped>
 .el-dropdown-link{
     display: flex;
+    outline: none;
 }
 .user-name{
     text-align: center;

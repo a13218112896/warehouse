@@ -12,7 +12,7 @@
                 <el-main>
                     <el-form  :inline="true" class="demo-form-inline" :model="form" label-width="120px">
                         <el-input style="border-radius: 0 0 0 0;" class="input" v-model="search" placeholder=""/>
-                        <el-button class="search-btn" type="primary">
+                        <el-button class="search-btn" type="primary" @click="onSubmit">
                             <el-icon style="vertical-align: middle">
                             <Search/>
                             </el-icon>
@@ -86,7 +86,11 @@ const form = reactive(
     ]
 )
 const onSubmit = () => {
-  console.log('submit!')
+//   console.log(search)
+  router.push({
+    path:'/screen',
+    query:search
+  })
 }
 </script>
 

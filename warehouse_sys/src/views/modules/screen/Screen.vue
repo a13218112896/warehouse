@@ -47,7 +47,7 @@ import router from "../../../router/index.js";
   import { reactive, ref, defineComponent, createApp, onMounted} from 'vue';
 import ScreenForm from '../../../components/screen/ScreenForm.vue'
 import UserMessage from '../../../components/home/UserMessage.vue';
-
+import { useRoute } from 'vue-router';
 // 路由跳转
 const toBack = () =>{
     router.push('/home')
@@ -55,10 +55,6 @@ const toBack = () =>{
 const toWarehousing = () =>{
     router.push('/warehousing')
 }
-// const getData = (msg) =>{
-//     router.push('/detailedInformation',msg)
-//     console.log(msg)
-// }
 // 搜索结果对象
 const screenForm = reactive(
     [
@@ -193,8 +189,12 @@ const form = reactive(
         },  
     ]
 )
-
-
+const search = ref()
+const route = useRoute();
+onMounted(() => {
+    // console.log(route.query)
+    search.value = route.query._value
+})
 </script>
 
 <style scoped>

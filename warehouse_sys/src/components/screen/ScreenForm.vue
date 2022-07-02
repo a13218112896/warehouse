@@ -40,9 +40,14 @@ export default{
 <script setup>
 import router from '../../router/index.js';
 const transmissionMsg = (data) => {
-    router.push({path:'/detailedInformation',query:data});
-    // console.log(data.value)
+    router.push(
+        {
+            path:'/detailedInformation',
+            query:data
+        }
+    );
 }
+
 </script>
 
 <style scoped>

@@ -21,7 +21,7 @@
 </template>
 <script setup>
   import router from '../../router/index.js';
-  import { reactive, ref, defineComponent, createApp, onMounted,defineEmits} from 'vue';
+  import { reactive, ref, defineComponent, createApp, onMounted} from 'vue';
   import { User, Key} from '@element-plus/icons-vue';
   import { ElMessage, ElLoading } from 'element-plus'
   // 子向父传值
@@ -61,7 +61,7 @@
   background-clip: padding-box;
   width:350px;
   padding: 25px 25px 25px 25px;
-  background-color: #fcfdfd;
+  background-color: rgb(252, 253, 253);
   border: 1px solid #409eff;
   border-radius: 8px;
   position: absolute;
@@ -82,7 +82,7 @@
   height: 35px;
 }
 .login-btn{
-   width:100%; 
+   width:100%;
    /* background-color: rgb(120, 169, 250);  */
    background-color: #409eff;
    height:40px;

@@ -38,6 +38,7 @@ export default{
 }
 </script>
 <script setup>
+const emit= defineEmits(["getMsg"])
 import router from '../../router/index.js';
 const transmissionMsg = (data) => {
     router.push(
@@ -45,7 +46,8 @@ const transmissionMsg = (data) => {
             path:'/detailedInformation',
             query:data
         }
-    );
+    )
+    // emit('getMsg',data)
 }
 
 </script>

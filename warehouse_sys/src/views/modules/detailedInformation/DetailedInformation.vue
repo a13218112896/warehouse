@@ -9,6 +9,7 @@
                 </div>
             </el-header>
             <el-main>
+                <el-button @click="toBack">返回</el-button>
                 <div class="message-ontainer">
                     <div class="message-value">
                         <span>{{data.value}}</span>
@@ -59,6 +60,9 @@ const ToScreen = () =>{
 }
 const logOut = () =>{
     router.push('/login')
+}
+const toBack = () =>{
+    router.go(-1)
 }
 const warehouseAddress = ref()
 const warehouseAddressData = reactive([
@@ -119,10 +123,12 @@ onMounted(() => {
 }
 .el-main{
     margin-top:60px;
+    padding: 20px 60px;
     .message-ontainer{
-        padding: 20px 60px;
-        border-top: 1px solid #d0d0d0;
-        border-bottom: 1px solid #d0d0d0;
+        margin-top: 20px;
+        padding: 10px 60px;
+        border-radius: 10px;
+        background-color: #e8f4ff;
         .message-value{
             margin: 20px 0 30px 0;
         }

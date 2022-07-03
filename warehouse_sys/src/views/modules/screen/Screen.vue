@@ -34,10 +34,18 @@
             </el-main>
             <el-footer>
                 <ul>
-                    <screenForm :screenForm="screenForm" ></screenForm>
+                    <screenForm :screenForm="screenForm" @getMsg="screenFromMessage"></screenForm>
                 </ul>
             </el-footer>    
         </el-container>
+         <el-drawer v-model="drawer" title="I am the title" :with-header="false">
+            <div><span>{{screenFormData.model}}</span></div>
+            <div>
+                <span>编号:{{screenFormData.id}}</span>
+                <span>型号:{{screenFormData.value}}</span>
+                <span>厂商:{{screenFormData.brand}}</span>
+            </div>
+        </el-drawer>
         <el-backtop :right="100" :bottom="100" />
     </div>
 </template>
@@ -189,6 +197,15 @@ const form = reactive(
         },  
     ]
 )
+
+const drawer = ref(false) 
+const screenFormData = ref()
+const screenFromMessage = (msg) =>{
+    // console.log(msg)
+    screenFormData.value = msg
+    console.log(screenFormData)
+    drawer.value = true
+}
 const search = ref()
 const route = useRoute();
 onMounted(() => {
@@ -230,8 +247,8 @@ onMounted(() => {
     cursor: pointer;
 }
 .el-main{
-    /* background-color: #e6f3ff; */
     padding: 0 0px;
+    overflow: hidden;
 }
 .demo-form-inline{
     width: 100%;

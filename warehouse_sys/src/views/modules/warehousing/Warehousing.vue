@@ -265,6 +265,7 @@ const addressBox = reactive({
                     // 货架
                     shelves:{
                         name:'一号货架',
+                        
                         // 存储盒
                         shelvesBox:[
                             {
